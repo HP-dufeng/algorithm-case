@@ -19,3 +19,15 @@ func TestReverseByForloop(t *testing.T) {
 		t.Errorf("Expected reseverse string %s, but got %s.", str, s)
 	}
 }
+
+func BenchmarkReverseByForloop(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		ReverseByForloop(str)
+	}
+}
+
+func BenchmarkReverseBySlice(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		ReverseBySlice(str)
+	}
+}
